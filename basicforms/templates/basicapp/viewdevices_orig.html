@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Devices</title>
+  </head>
+  <body>
+    <h1>Welcome Devices Page</h1>
+    <table border="2">
+      <thead>
+        <th>Table1</th>
+        <th>Table2</th>
+      </thead>
+      <tr>
+        <td>
+          {% if viewdevicesdata %}
+            <table border="1">
+              <thead>
+                <th>DeviceName</th>
+                <th>Date </th>
+              </thead>
+              {% for dev in viewdevicesdata %}
+              <tr>
+                <td>{{dev.name}}</td>
+                <td>{{dev.datetime}}</td>
+              </tr>
+              {% endfor %}
+            </table>
+          {% else %}
+              <p>No Data to Display</p>
+          {% endif %}
+        </td>
+        <td>
+          {% if viewdeviceconndata %}
+            <table border="1">
+              <thead>
+                <th>DeviceName</th>
+                <th>Date </th>
+                <th>Status</th>
+              </thead>
+              {% for devconn in viewdeviceconndata %}
+              <tr>
+                <td>{{devconn.name}}</td>
+                <td>{{devconn.datetime}}</td>
+                <td>{{devconn.status}}</td>
+              </tr>
+              {% endfor %}
+            </table>
+          {% else %}
+              <p>No Data to Display</p>
+          {% endif %}
+        </td>
+      </tr>
+  </table>
+  </body>
+</html>
